@@ -1,0 +1,11 @@
+<article>
+  <h2><%= product.name %></h2>
+  <dl>
+    <%- product.dynamic_fields.each do |field_name| %>
+      <%- if filter(field_name) %>
+        <dt><%= filter(field_name).name %></dt>
+        <dd><%= render "filters/show_#{filter(field_name).field_type}", product: product, field_name: field_name, cache: true %><dd>
+      <%- end %>
+    <%- end %>
+  </dl>
+</article>

@@ -1,0 +1,27 @@
+<h1>Listando Produtos</h1>
+
+<table class='table'>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td>
+          <%= link_to 'Exibir', product, class: 'btn btn-default' %>
+          <%= link_to 'Editar', edit_product_path(product), class: 'btn btn-default' %>
+          <%= link_to 'Deletar', product, method: :delete, data: { confirm: 'Têm certeza?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo Produto', new_product_path, class: 'btn btn-default' %>

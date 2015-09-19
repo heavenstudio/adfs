@@ -1,0 +1,40 @@
+<h1>Exibindo Filtro</h1>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @filter.name %>
+</p>
+
+<p>
+  <strong>Nome do Campo:</strong>
+  <%= @filter.field_name %>
+</p>
+
+<p>
+  <strong>Tipo de Campo:</strong>
+  <%= t("helpers.filters.#{@filter.field_type}") %>
+</p>
+
+<p>
+  <strong>Filtrável?</strong>
+  <%= @filter.filterable ? 'Sim' : 'Não' %>
+</p>
+
+<p>
+  <strong>Obrigatório?</strong>
+  <%= @filter.required ? 'Sim' : 'Não' %>
+</p>
+
+<%- if @filter.options.present? %>
+  <p>
+    <strong>Opções</strong>
+    <ul>
+      <%- @filter.options.each do |option| %>
+        <li><%= option %></li>
+      <%- end %>
+    </ul>
+  </p>
+<%- end %>
+
+<%= link_to 'Editar', edit_filter_path(@filter), class: 'btn btn-default' %>
+<%= link_to 'Voltar', filters_path, class: 'btn btn-default' %>

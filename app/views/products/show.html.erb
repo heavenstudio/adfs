@@ -1,0 +1,18 @@
+<h1>Exibindo Produto</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<%- @product.dynamic_fields.each do |field_name| %>
+  <%- if filter(field_name) %>
+    <p>
+      <strong><%= filter(field_name).name %></strong>
+      <%= render "filters/show_#{filter(field_name).field_type}", product: @product, field_name: field_name, cache: true %>
+    </p>
+  <%- end %>
+<%- end %>
+
+<%= link_to 'Editar', edit_product_path(@product), class: 'btn btn-default' %>
+<%= link_to 'Voltar', products_path, class: 'btn btn-default' %>

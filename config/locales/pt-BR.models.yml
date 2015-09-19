@@ -1,0 +1,15 @@
+pt-BR:
+  mongoid:
+    attributes:
+      filter:
+        name: 'Nome'
+        field_name: 'Nome do Campo (attributo no banco de dados)'
+        field_type: 'Tipo de Campo'
+        filterable: 'Filtrável?'
+        required: 'Obrigatório?'
+      product:
+        name: 'Nome'
+    models:
+      dynamic_product_form: 'Produto'
+      filter: 'Filtro'
+      product: 'Produto'

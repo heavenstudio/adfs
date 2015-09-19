@@ -1,0 +1,13 @@
+<%= f.error_notification %>
+
+<div class="form-inputs">
+  <%= f.input :name %>
+  <%- filters.each do |filter| %>
+    <%= render "filters/#{filter.field_type}", f: f, filter: filter, value: product.send(filter.field_name) %>
+  <%- end %>
+</div>
+
+<div class="form-actions">
+  <%= f.button :submit, (product.persisted? ? 'Criar Produto' : 'Atualizar Produto'), class: 'btn btn-primary' %>
+  <%= link_to 'Cancelar', products_path, class: 'btn btn-danger' %>
+</div>

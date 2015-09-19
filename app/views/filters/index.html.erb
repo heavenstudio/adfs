@@ -1,0 +1,35 @@
+<h1>Lista de Filtros</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Nome do Campo</th>
+      <th>Tipo de Campo</th>
+      <th>Filtrável?</th>
+      <th>Obrigatório?</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @filters.each do |filter| %>
+      <tr>
+        <td><%= filter.name %></td>
+        <td><%= filter.field_name %></td>
+        <td><%= t("helpers.filters.#{filter.field_type}") %></td>
+        <td><%= filter.filterable ? 'Sim' : 'Não' %></td>
+        <td><%= filter.required ? 'Sim' : 'Não' %></td>
+        <td>
+          <%= link_to 'Exibir', filter, class: 'btn btn-default' %>
+          <%= link_to 'Editar', edit_filter_path(filter), class: 'btn btn-default' %>
+          <%= link_to 'Apagar', filter, method: :delete, data: { confirm: 'Têm certeza?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo Filtro', new_filter_path, class: 'btn btn-primary' %>
