@@ -1,3 +1,56 @@
 // Place all the styles related to the Filters controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body{
+  background: url('background.png')
+}
+
+.container.content{
+  background:#fff;
+  margin-top:0;
+  padding:20px 20px;
+}
+
+ul.nav.navbar-nav{
+  float:right;
+}
+
+.col-lg-3.sidebar{
+  background: #f2f0f0;
+  padding:15px 20px;
+}
+
+.col-lg-3.sidebar h2{
+  margin:0;
+  font-size:1.8rem;
+  margin:0 0 10px 0;
+
+}
+.navbar{
+  margin-bottom:2px;
+}
+.col-lg-9 h2{
+  font-size:2.0rem;
+  margin:0 0 10px 0;
+
+
+}
+.footer_area{
+  position:absolute;
+  bottom:0;
+  width:100%;
+}
+
+footer{
+	border-bottom: 1px solid #e5e5e5;
+	background-color: #fafafa;
+	border: 1px solid #e6e6e6;
+	text-align: center;
+	color: #999;
+	p {
+		margin: 0;
+		padding: 20px 0;
+	}
+}
