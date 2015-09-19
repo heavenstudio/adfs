@@ -48,31 +48,12 @@ class ProductsController < ApplicationController
   end
 
   def search
-    active_filters = {}
-    active_filters_options = {}
-    filters = Filter.filterable
-
-    @search = Sunspot.search(Product) do
-      keywords params[:q] if params[:q].present?
-      dynamic :filters do
-        selected_filters = params[:filters] || {}
-
-        # loop each selected filter, give their field name and select options and exclude empty values
-        selected_filters.each do |field_name, selected_options|
-          next if selected_options.blank? || selected_options == ['']
-          cleansed_selected_options = selected_options.select(&:present?)
-          active_filters[field_name] = with(field_name, cleansed_selected_options)
-          active_filters_options[field_name] = cleansed_selected_options.select(&:present?)
-        end
-
-        filters.each do |filter|
-          facet filter.field_name, exclude: active_filters[filter.field_name]
-        end
-      end
-    end
+    @filters = Filter.filterable
+    @product_search = ProductSearch.new(params[:q], params[:filters], @filters)
+    @search = @product_search.search
+    @active_filters_options = @product_search.active_filters_options
     @products = @search.results
-    @filters = filters || []
-    @active_filters_options = active_filters_options || {}
+    @total = @search.total
   end
 
   private

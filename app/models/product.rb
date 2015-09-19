@@ -17,9 +17,13 @@ class Product
     attributes.keys - fields.keys
   end
 
+  # we define search fields here
   searchable do
     text :name
 
+    # for each dynamic filter we declare its corresponding database value
+    # you may also want / need to store references to other objects instead of the
+    # actual object value / String in more complex scenarios
     dynamic_string :filters, multiple: true do
       Filter.filterable.inject({}) do |hash, filter|
         field = filter.field_name

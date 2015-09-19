@@ -1,3 +1,4 @@
+# pretty standard Mongoid model, nothing special here
 class Filter
   include Mongoid::Document
   include Mongoid::Timestamps
