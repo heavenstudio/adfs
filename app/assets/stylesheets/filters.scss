@@ -11,6 +11,7 @@ body{
   background:#fff;
   margin-top:0;
   padding:20px 20px;
+  margin-bottom:1px;
 }
 
 ul.nav.navbar-nav{
@@ -37,7 +38,7 @@ ul.nav.navbar-nav{
 
 }
 .footer_area{
-  position:absolute;
+  position: fixed;
   bottom:0;
   width:100%;
 }
@@ -103,4 +104,12 @@ h1{
 
 th{
   background: #eee;
+  color:#636363;
+}
+@media (max-width:1199px) {
+  .footer_area{
+    position:relative;
+    bottom:0;
+    width:100%;
+  }
 }
