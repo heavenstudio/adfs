@@ -1,0 +1,26 @@
+.col-lg-3.sidebar
+  %h2.busca.inline Faça sua busca
+  .inline
+    =image_tag('lupa.png')
+  = form_tag search_products_path, method: :get do
+    = text_field_tag :q, params[:q], placeholder: 'Digite uma palavra chave', class: 'form-control'
+    - @search.facets.each do |search_facet|
+      - field_name = search_facet.name.to_s.gsub('filters:', '')
+      - filter = Filter.find_by(field_name: field_name)
+      %h2= filter.name
+      - search_facet.rows.each do |search_facet_row|
+        - active_option = @active_filters_options[field_name].present? && @active_filters_options[field_name].include?(search_facet_row.value)
+        - option_label = filter.field_type == 'boolean' ? t("helpers.boolean.#{search_facet_row.value}") : search_facet_row.value
+        .checkbox
+          %label
+            = check_box_tag "filters[#{field_name}][]", search_facet_row.value, active_option
+            = option_label
+            (#{search_facet_row.count})
+      %hr/
+    = submit_tag 'Buscar', class: 'btn btn-primary full'
+    = link_to 'Reiniciar busca', root_url, class: 'restart'
+.col-lg-9
+  %h2.busca
+    = @total
+    resultados encontrados
+  = render @products, cache: true

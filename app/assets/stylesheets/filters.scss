@@ -35,7 +35,6 @@ ul.nav.navbar-nav{
   font-size:2.0rem;
   margin:0 0 10px 0;
 
-
 }
 .footer_area{
   position:absolute;
@@ -53,4 +52,38 @@ footer{
 		margin: 0;
 		padding: 20px 0;
 	}
+}
+.col-lg-9{
+  padding:10px 30px;
+}
+
+h2.busca{
+  color:#d8334e;
+}
+.navbar-default{
+  background:#fff;
+}
+
+input#q{
+  margin-bottom:20px;
+}
+hr{
+  border-color:#fff;
+}
+
+.inline{
+  display:inline-block;
+}
+
+.btn-primary{
+  background:#d8334e;
+  color:#fff;
+  border-color:#d8334e;
+}
+.full{
+  width:100%;
+}
+.restart{
+  color:#909090;
+  margin-top:5px;
 }
