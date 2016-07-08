@@ -1,0 +1,37 @@
+production:
+  solr:
+    hostname: localhost
+    port: 8983
+    # path: '/usr/share/solr/example/multicore'
+    log_level: WARNING
+    solr_home: solr
+
+development:
+  solr:
+    hostname: localhost
+    port: 8983
+    log_level: WARNING
+    solr_home: solr
+
+staging:
+  solr:
+    hostname: localhost
+    port: 8983
+    log_level: WARNING
+    solr_home: solr
+
+test:
+  solr:
+    hostname: localhost
+    # port: 8981
+    log_level: WARNING
+    solr_home: solr
+
+    # path: /solr/test
+
+offline:
+  solr:
+    hostname: localhost
+    port: 8080
+    path: '/usr/share/solr/example/multicore'
+    log_level: WARNING
